@@ -1,5 +1,5 @@
 # ABCA4 Regulatory Domain Pathogenicity Model
-
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20695958.svg)](https://doi.org/10.5281/zenodo.20695958)
 ## Overview
 This repository contains the code, data, and results for a domain-specific 
 machine learning model designed to predict the pathogenicity of missense variants 
