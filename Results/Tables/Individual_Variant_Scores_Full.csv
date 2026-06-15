@@ -1,0 +1,16 @@
+Protein_change,y_true,y_proba,y_pred,Prediction
+R1161H,1,1.0,1,Pathogenic
+L1201R,0,0.24980361351139044,0,Benign
+M1209T,0,0.0,0,Benign
+A1219P,1,0.9478764478764479,1,Pathogenic
+L1250P,1,1.0,1,Pathogenic
+L1269Q,1,1.0,1,Pathogenic
+E1271G,1,1.0,1,Pathogenic
+I1272T,1,1.0,1,Pathogenic
+L1274P,1,1.0,1,Pathogenic
+I2166M,0,0.2656414895220866,0,Benign
+D2177N,0,0.0,0,Benign
+F2188S,1,0.8612214498510427,1,Pathogenic
+A2216E,1,1.0,1,Pathogenic
+L2229P,1,0.9464285714285715,1,Pathogenic
+E2233V,1,0.9622641509433962,1,Pathogenic

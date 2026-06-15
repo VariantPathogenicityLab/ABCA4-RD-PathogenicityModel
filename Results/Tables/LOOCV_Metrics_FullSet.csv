@@ -1,0 +1,3 @@
+Feature_Set,ROC_AUC,PR_AUC,Accuracy,Precision,Sensitivity,Specificity,F1,MCC
+full,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
+reduced,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
