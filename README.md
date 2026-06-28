@@ -6,7 +6,7 @@ machine learning model designed to predict the pathogenicity of missense variant
 in the regulatory domains (RD1 and RD2) of the ABCA4 gene. A Random Forest 
 classifier trained with Leave-One-Out Cross-Validation (LOOCV) and isotonic 
 calibration is applied separately to structured and intrinsically disordered 
-regions, using full (18-feature) and reduced (11-feature) feature sets respectively.
+regions, using full (18-feature) and reduced (14-feature) feature sets respectively.
 
 This work is part of a manuscript currently under review. Citation information 
 will be added upon publication.
@@ -15,10 +15,10 @@ will be added upon publication.
 Two models are trained and saved:
 - **Full model (18 features):** Applied to variants in structured regions of RD1 
   and RD2 where all scores are available
-- **Reduced model (11 features):** Applied to variants in intrinsically disordered 
+- **Reduced model (14 features):** Applied to variants in intrinsically disordered 
   regions of RD1 and RD2 where structural scores are excluded
 
-Predictions are classified into five ACMG-informed categories based on predicted 
+Predictions are classified into five categories based on predicted 
 probability:
 
 | Probability | Category |
@@ -30,32 +30,30 @@ probability:
 | < 0.11 | Likely Benign |
 
 ## Training Data
-The model was trained on 15 curated ABCA4 regulatory domain variants (11 PLP, 
+The model was trained on 18 curated ABCA4 regulatory domain variants (14 PLP, 
 4 BLB) from ClinVar. Variants are classified as Pathogenic/Likely Pathogenic 
 (PLP = 1) or Benign/Likely Benign (BLB = 0).
 
 ## Repository Structure
 ```
 ABCA4-RD-PathogenicityModel/
-├── data/
-│   ├── training/
+├── Data/
+│   ├── Training/
 │   │   └── ABCA4_Training_Variants.csv     # Training variants with scores
-│   └── variants/
-│       ├── RD1_Structured_Variants.csv     # RD1 structured region VUS
-│       ├── RD1_Disordered_Variants.csv     # RD1 disordered region VUS
-│       ├── RD2_Structured_Variants.csv     # RD2 structured region VUS
-│       └── RD2_Disordered_Variants.csv     # RD2 disordered region VUS
-├── scripts/
+│   └── Variants/
+│       ├── RD1_Variants.csv                # RD1 structured region VUS
+│       ├── RD2_Variants.csv                # RD1 disordered region VUS
+├── Scripts/
 │   ├── Train_ABCA4_RD_Model.py             # Train model, LOOCV and permutation tests
 │   ├── Predict_ABCA4_RD_Variants.py        # Run predictions on new variants
 │   └── Plot_Permutations.py                # Generate publication permutation figures
-├── results/
-│   ├── figures/
-│   │   ├── loocv/                          # ROC, PR, and calibration plots
-│   │   └── permutations/                   # Permutation test figures
-│   ├── tables/                             # LOOCV metrics and permutation results
-│   ├── models/                             # Saved .pkl model files
-│   └── predictions/                        # Variant prediction outputs
+├── Results/
+│   ├── Figures/
+│   │   ├── LOOCV/                          # ROC, PR, and calibration plots
+│   │   └── Permutations/                   # Permutation test figures
+│   ├── Tables/                             # LOOCV metrics and permutation results
+│   ├── Models/                             # Saved .pkl model files
+│   └── Predictions/                        # Variant prediction outputs
 └── requirements.txt
 ```
 
@@ -77,24 +75,24 @@ the full model are marked (F), reduced model (R), and both (F+R):
 | Column | Model | Notes |
 |---|---|---|
 | `Protein_Change` | — | Variant identifier |
-| `SIFT_SCORE` | F+R | Must be inverted (see above) |
-| `PolyPhen-2_D_SCORE` | F | PolyPhen-2 HumDiv |
-| `AM_SCORE` | F+R | AlphaMissense |
+| `SIFT` | F+R | Must be inverted (see above) |
+| `PolyPhen-2_HumDiv` | F | Uses PDB structure |
+| `AlphaMissense` | F | Uses AlphaFold 3d structure |
 | `GRANTHAM_SCORE` | F+R | |
-| `REVEL_SCORE` | F+R | |
-| `PolyPhen-2_V_SCORE` | F | PolyPhen-2 HumVar |
-| `MetaRNN_SCORE` | F+R | |
-| `MutScore_SCORE` | F+R | |
-| `GERP_SCORE` | F+R | |
-| `MT_SCORE` | F+R | MutationTaster |
-| `MA_SCORE` | F+R | MutationAssessor |
-| `PROVEAN_SCORE` | F+R | |
-| `VEST4_SCORE` | F | |
-| `MutPred_SCORE` | F | |
-| `gMVP_SCORE` | F | |
-| `MPC_SCORE` | F | |
-| `DEOGEN2_SCORE` | F+R | |
-| `LIST-S2_SCORE` | F+R | |
+| `REVEL` | F+R | |
+| `PolyPhen-2_HumVar` | F | Uses PDB structure |
+| `MetaRNN` | F+R | |
+| `MutScore` | F+R | |
+| `GERP` | F+R | |
+| `MutationTaster` | F+R | |
+| `Mutation_Assessor` | F+R | |
+| `PROVEAN` | F+R | |
+| `VEST4` | F+R | |
+| `MutPred` | F+R | |
+| `gMVP` | F+R | |
+| `MPC` | F | Uses structure |
+| `DEOGEN2` | F+R | |
+| `LIST-S2` | F+R | |
 
 ## Requirements
 - Python 3.13
