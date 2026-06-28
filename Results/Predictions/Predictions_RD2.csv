@@ -1,0 +1,28 @@
+Protein_Change,Protein_Structure,Recommended_Model,Full_Model_Probability,Full_Model_ACMG_Category,Reduced_Model_Probability,Reduced_Model_ACMG_Category,Recommended_Probability,Recommended_ACMG_Category
+G2164S,1,Full,1.0,Likely Pathogenic,1.0,Likely Pathogenic,1.0,Likely Pathogenic
+G2164D,1,Full,1.0,Likely Pathogenic,1.0,Likely Pathogenic,1.0,Likely Pathogenic
+Y2165C,1,Full,1.0,Likely Pathogenic,1.0,Likely Pathogenic,1.0,Likely Pathogenic
+I2166V,1,Full,0.0,Likely Benign,0.0,Likely Benign,0.0,Likely Benign
+V2167I,1,Full,0.0325,Likely Benign,0.0307,Likely Benign,0.0325,Likely Benign
+K2172R,1,Full,0.0325,Likely Benign,0.0307,Likely Benign,0.0325,Likely Benign
+P2174L,0,Reduced,0.6755,VUS,0.7705,VUS-Likely Pathogenic,0.7705,VUS-Likely Pathogenic
+L2179P,1,Full,0.0081,Likely Benign,0.0044,Likely Benign,0.0081,Likely Benign
+Q2187R,1,Full,0.0,Likely Benign,0.0,Likely Benign,0.0,Likely Benign
+Q2187H,1,Full,0.0854,Likely Benign,0.0833,Likely Benign,0.0854,Likely Benign
+Q2190R,1,Full,0.0,Likely Benign,0.0,Likely Benign,0.0,Likely Benign
+Q2190H,1,Full,0.0691,Likely Benign,0.0482,Likely Benign,0.0691,Likely Benign
+Q2190P,1,Full,0.2413,VUS-Likely Benign,0.4404,VUS,0.2413,VUS-Likely Benign
+F2193V,1,Full,0.9959,Likely Pathogenic,0.9188,Likely Pathogenic,0.9959,Likely Pathogenic
+S2196R,1,Full,0.9837,Likely Pathogenic,0.9238,Likely Pathogenic,0.9837,Likely Pathogenic
+H2202D,1,Full,1.0,Likely Pathogenic,1.0,Likely Pathogenic,1.0,Likely Pathogenic
+L2206F,1,Full,0.9797,Likely Pathogenic,0.8741,VUS-Likely Pathogenic,0.9797,Likely Pathogenic
+Q2207P,1,Full,0.976,Likely Pathogenic,1.0,Likely Pathogenic,0.976,Likely Pathogenic
+Q2207R,1,Full,0.5835,VUS,0.5086,VUS,0.5835,VUS
+F2208Y,1,Full,0.0,Likely Benign,0.0,Likely Benign,0.0,Likely Benign
+Q2209R,1,Full,0.1598,VUS-Likely Benign,0.1685,VUS-Likely Benign,0.1598,VUS-Likely Benign
+S2211F,1,Full,0.6031,VUS,0.6935,VUS,0.6031,VUS
+S2211Y,1,Full,0.7002,VUS,0.7815,VUS-Likely Pathogenic,0.7002,VUS
+A2216G,1,Full,0.7133,VUS,0.8416,VUS-Likely Pathogenic,0.7133,VUS
+I2231V,0,Reduced,0.065,Likely Benign,0.0877,Likely Benign,0.0877,Likely Benign
+E2232K,1,Full,0.964,Likely Pathogenic,1.0,Likely Pathogenic,0.964,Likely Pathogenic
+S2235P,1,Full,1.0,Likely Pathogenic,1.0,Likely Pathogenic,1.0,Likely Pathogenic

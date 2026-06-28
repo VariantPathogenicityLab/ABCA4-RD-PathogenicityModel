@@ -19,28 +19,28 @@ plt.rcParams['axes.linewidth'] = 2.0
 # Plot configurations — axis limits and tick intervals per metric and feature set
 PLOT_CONFIGS = {
     ('full', 'accuracy'): {
-        'xlim': (0.3, 1.0), 'ylim': (0, 500),
-        'x_maj': 0.1,  'x_min': 0.05,  'y_maj': 50, 'y_min': 10
+        'xlim': (0.3, 1.0), 'ylim': (0, 1300),
+        'x_maj': 0.1,  'x_min': 0.05,  'y_maj': 100, 'y_min': 20
     },
     ('full', 'precision'): {
-        'xlim': (0.5, 1.0), 'ylim': (0, 400),
-        'x_maj': 0.05, 'x_min': 0.025, 'y_maj': 50, 'y_min': 10
+        'xlim': (0.5, 1.0), 'ylim': (0, 1000),
+        'x_maj': 0.05, 'x_min': 0.025, 'y_maj': 100, 'y_min': 20
     },
     ('full', 'roc_auc'): {
-        'xlim': (0.0, 1.0), 'ylim': (0, 80),
-        'x_maj': 0.1,  'x_min': 0.05,  'y_maj': 10, 'y_min': 2
+        'xlim': (0.0, 1.0), 'ylim': (0, 220),
+        'x_maj': 0.1,  'x_min': 0.05,  'y_maj': 20, 'y_min': 5
     },
     ('reduced', 'accuracy'): {
-        'xlim': (0.3, 1.0), 'ylim': (0, 450),
-        'x_maj': 0.1,  'x_min': 0.05,  'y_maj': 50, 'y_min': 10
+        'xlim': (0.3, 1.0), 'ylim': (0, 1300),
+        'x_maj': 0.1,  'x_min': 0.05,  'y_maj': 100, 'y_min': 20
     },
     ('reduced', 'precision'): {
-        'xlim': (0.5, 1.0), 'ylim': (0, 350),
-        'x_maj': 0.05, 'x_min': 0.025, 'y_maj': 50, 'y_min': 10
+        'xlim': (0.5, 1.0), 'ylim': (0, 1000),
+        'x_maj': 0.05, 'x_min': 0.025, 'y_maj': 100, 'y_min': 20
     },
     ('reduced', 'roc_auc'): {
-        'xlim': (0.0, 1.0), 'ylim': (0, 100),
-        'x_maj': 0.1,  'x_min': 0.05,  'y_maj': 10, 'y_min': 2
+        'xlim': (0.0, 1.0), 'ylim': (0, 220),
+        'x_maj': 0.1,  'x_min': 0.05,  'y_maj': 20, 'y_min': 5
     }
 }
 # ------------------------------------------------------

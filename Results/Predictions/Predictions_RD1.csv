@@ -1,0 +1,65 @@
+Protein_Change,Protein_Structure,Recommended_Model,Full_Model_Probability,Full_Model_ACMG_Category,Reduced_Model_Probability,Reduced_Model_ACMG_Category,Recommended_Probability,Recommended_ACMG_Category
+V1160L,1,Full,0.9255,Likely Pathogenic,0.8215,VUS-Likely Pathogenic,0.9255,Likely Pathogenic
+Q1169R,0,Reduced,0.0,Likely Benign,0.0,Likely Benign,0.0,Likely Benign
+R1170T,0,Reduced,0.0,Likely Benign,0.0,Likely Benign,0.0,Likely Benign
+S1173N,0,Reduced,0.0,Likely Benign,0.0,Likely Benign,0.0,Likely Benign
+S1178N,0,Reduced,0.0528,Likely Benign,0.0614,Likely Benign,0.0614,Likely Benign
+S1180L,0,Reduced,0.0,Likely Benign,0.0,Likely Benign,0.0,Likely Benign
+K1182R,0,Reduced,0.0081,Likely Benign,0.0,Likely Benign,0.0,Likely Benign
+G1183C,0,Reduced,0.0081,Likely Benign,0.0044,Likely Benign,0.0044,Likely Benign
+T1187K,0,Reduced,0.0691,Likely Benign,0.0614,Likely Benign,0.0614,Likely Benign
+T1187M,0,Reduced,0.0569,Likely Benign,0.0614,Likely Benign,0.0614,Likely Benign
+A1190T,0,Reduced,0.0081,Likely Benign,0.0044,Likely Benign,0.0044,Likely Benign
+V1192I,0,Reduced,0.0,Likely Benign,0.0,Likely Benign,0.0,Likely Benign
+V1192A,0,Reduced,0.0,Likely Benign,0.0,Likely Benign,0.0,Likely Benign
+D1193N,0,Reduced,0.0,Likely Benign,0.0,Likely Benign,0.0,Likely Benign
+D1193E,0,Reduced,0.0,Likely Benign,0.0,Likely Benign,0.0,Likely Benign
+D1194E,0,Reduced,0.0,Likely Benign,0.0,Likely Benign,0.0,Likely Benign
+T1196S,0,Reduced,0.0,Likely Benign,0.0044,Likely Benign,0.0044,Likely Benign
+V1200L,1,Full,0.0163,Likely Benign,0.0088,Likely Benign,0.0163,Likely Benign
+D1202E,1,Full,0.0,Likely Benign,0.0044,Likely Benign,0.0,Likely Benign
+G1203R,1,Full,1.0,Likely Pathogenic,1.0,Likely Pathogenic,1.0,Likely Pathogenic
+G1203E,1,Full,0.7824,VUS-Likely Pathogenic,0.8745,VUS-Likely Pathogenic,0.7824,VUS-Likely Pathogenic
+D1204N,1,Full,0.0407,Likely Benign,0.0526,Likely Benign,0.0407,Likely Benign
+V1205I,1,Full,0.0569,Likely Benign,0.057,Likely Benign,0.0569,Likely Benign
+E1207K,1,Full,0.0122,Likely Benign,0.0175,Likely Benign,0.0122,Likely Benign
+M1209L,1,Full,0.0,Likely Benign,0.0,Likely Benign,0.0,Likely Benign
+V1211I,1,Full,0.0569,Likely Benign,0.057,Likely Benign,0.0569,Likely Benign
+V1212A,1,Full,0.6487,VUS,0.7121,VUS,0.6487,VUS
+L1213F,1,Full,0.0,Likely Benign,0.0,Likely Benign,0.0,Likely Benign
+H1215Q,1,Full,1.0,Likely Pathogenic,0.9276,Likely Pathogenic,1.0,Likely Pathogenic
+P1217S,1,Full,0.6386,VUS,0.7837,VUS-Likely Pathogenic,0.6386,VUS
+A1219V,1,Full,0.9033,Likely Pathogenic,0.9184,Likely Pathogenic,0.9033,Likely Pathogenic
+V1222A,1,Full,0.2959,VUS,0.4338,VUS,0.2959,VUS
+C1224G,1,Full,0.0732,Likely Benign,0.1009,Likely Benign,0.0732,Likely Benign
+I1225V,1,Full,0.0081,Likely Benign,0.0132,Likely Benign,0.0081,Likely Benign
+I1225F,1,Full,0.8396,VUS-Likely Pathogenic,0.8921,VUS-Likely Pathogenic,0.8396,VUS-Likely Pathogenic
+I1225T,1,Full,0.5251,VUS,0.863,VUS-Likely Pathogenic,0.5251,VUS
+G1226D,1,Full,1.0,Likely Pathogenic,1.0,Likely Pathogenic,1.0,Likely Pathogenic
+Q1227E,1,Full,0.2646,VUS,0.2905,VUS,0.2646,VUS
+E1228A,1,Full,0.991,Likely Pathogenic,0.9637,Likely Pathogenic,0.991,Likely Pathogenic
+E1228K,1,Full,0.8629,VUS-Likely Pathogenic,0.8896,VUS-Likely Pathogenic,0.8629,VUS-Likely Pathogenic
+L1232P,1,Full,1.0,Likely Pathogenic,0.9864,Likely Pathogenic,1.0,Likely Pathogenic
+L1233P,1,Full,1.0,Likely Pathogenic,1.0,Likely Pathogenic,1.0,Likely Pathogenic
+P1234L,1,Full,1.0,Likely Pathogenic,1.0,Likely Pathogenic,1.0,Likely Pathogenic
+N1235D,1,Full,0.0163,Likely Benign,0.0088,Likely Benign,0.0163,Likely Benign
+K1236E,1,Full,0.0244,Likely Benign,0.0395,Likely Benign,0.0244,Likely Benign
+N1237K,1,Full,0.081,Likely Benign,0.1397,VUS-Likely Benign,0.081,Likely Benign
+R1241S,1,Full,0.2316,VUS-Likely Benign,0.1284,VUS-Likely Benign,0.2316,VUS-Likely Benign
+Y1243D,1,Full,1.0,Likely Pathogenic,1.0,Likely Pathogenic,1.0,Likely Pathogenic
+A1244T,1,Full,0.6204,VUS,0.5809,VUS,0.6204,VUS
+L1246H,1,Full,1.0,Likely Pathogenic,1.0,Likely Pathogenic,1.0,Likely Pathogenic
+R1248K,1,Full,0.0528,Likely Benign,0.0307,Likely Benign,0.0528,Likely Benign
+E1252V,1,Full,0.7486,VUS,0.9649,Likely Pathogenic,0.7486,VUS
+T1253M,1,Full,0.4349,VUS,0.3228,VUS,0.4349,VUS
+T1253K,1,Full,0.061,Likely Benign,0.1353,VUS-Likely Benign,0.061,Likely Benign
+A1255V,1,Full,0.0,Likely Benign,0.0044,Likely Benign,0.0,Likely Benign
+G1263E,1,Full,1.0,Likely Pathogenic,1.0,Likely Pathogenic,1.0,Likely Pathogenic
+T1267S,1,Full,0.9659,Likely Pathogenic,0.9932,Likely Pathogenic,0.9659,Likely Pathogenic
+T1267A,1,Full,1.0,Likely Pathogenic,1.0,Likely Pathogenic,1.0,Likely Pathogenic
+L1269R,1,Full,1.0,Likely Pathogenic,1.0,Likely Pathogenic,1.0,Likely Pathogenic
+E1271D,1,Full,1.0,Likely Pathogenic,1.0,Likely Pathogenic,1.0,Likely Pathogenic
+L1274R,1,Full,1.0,Likely Pathogenic,1.0,Likely Pathogenic,1.0,Likely Pathogenic
+K1275R,1,Full,0.1717,VUS-Likely Benign,0.2614,VUS,0.1717,VUS-Likely Benign
+T1277M,1,Full,0.7654,VUS-Likely Pathogenic,0.8258,VUS-Likely Pathogenic,0.7654,VUS-Likely Pathogenic
+D1279E,1,Full,0.0,Likely Benign,0.0,Likely Benign,0.0,Likely Benign

@@ -28,33 +28,37 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_PATH = os.path.join(BASE_DIR, "..", "data", "training", "ABCA4_Training_Variants.csv")
 
 # Output directories
-FIGURES_LOOCV_DIR   = os.path.join(BASE_DIR, "..", "results", "figures", "loocv")
-FIGURES_PERM_DIR    = os.path.join(BASE_DIR, "..", "results", "figures", "permutations")
-TABLES_DIR          = os.path.join(BASE_DIR, "..", "results", "tables")
-MODELS_DIR          = os.path.join(BASE_DIR, "..", "results", "models")
+FIGURES_LOOCV_DIR = os.path.join(BASE_DIR, "..", "results", "figures", "loocv")
+FIGURES_PERM_DIR  = os.path.join(BASE_DIR, "..", "results", "figures", "permutations")
+TABLES_DIR        = os.path.join(BASE_DIR, "..", "results", "tables")
+MODELS_DIR        = os.path.join(BASE_DIR, "..", "results", "models")
 
 for d in [FIGURES_LOOCV_DIR, FIGURES_PERM_DIR, TABLES_DIR, MODELS_DIR]:
     os.makedirs(d, exist_ok=True)
 
-N_BOOT        = 5000
-CALIB_METHOD  = "isotonic"
-CALIB_CV      = 3
-RANDOM_STATE  = 42
-PERMUTATIONS  = 1365
+N_BOOT       = 5000
+CALIB_METHOD = "isotonic"
+CALIB_CV     = 3
+RANDOM_STATE = 42
+PERMUTATIONS = 3060
 # ------------------------------------------------------
 
 # Load data
 df = pd.read_csv(DATA_PATH)
 
+# Full feature set (18 features) — used for structured variants
 features_full = [
-    'SIFT_SCORE', 'PolyPhen-2_D_SCORE', 'AM_SCORE', 'GRANTHAM_SCORE', 'REVEL_SCORE',
-    'PolyPhen-2_V_SCORE', 'MetaRNN_SCORE', 'MutScore_SCORE', 'GERP_SCORE',
-    'MT_SCORE', 'MA_SCORE', 'PROVEAN_SCORE', 'VEST4_SCORE', 'MutPred_SCORE', 'gMVP_SCORE',
-    'MPC_SCORE', 'DEOGEN2_SCORE', 'LIST-S2_SCORE'
+    'SIFT', 'PolyPhen-2_HumDiv', 'AlphaMissense', 'GRANTHAM_SCORE', 'REVEL',
+    'PolyPhen-2_HumVar', 'MetaRNN', 'MutScore', 'GERP',
+    'MutationTaster', 'Mutation_Assessor', 'PROVEAN', 'VEST4', 'MutPred', 'gMVP',
+    'MPC', 'DEOGEN2', 'LIST-S2'
 ]
+
+# Reduced feature set (14 features) — used for variants without known structure
 features_reduced = [
-    'SIFT_SCORE', 'GRANTHAM_SCORE', 'REVEL_SCORE', 'MetaRNN_SCORE', 'MutScore_SCORE',
-    'GERP_SCORE', 'MT_SCORE', 'MA_SCORE', 'PROVEAN_SCORE', 'DEOGEN2_SCORE', 'LIST-S2_SCORE'
+    'SIFT', 'GRANTHAM_SCORE', 'REVEL', 'MetaRNN', 'MutScore',
+    'GERP', 'MutationTaster', 'Mutation_Assessor', 'PROVEAN',
+    'VEST4', 'MutPred', 'gMVP', 'DEOGEN2', 'LIST-S2'
 ]
 
 X_full    = df[features_full].values
@@ -103,20 +107,20 @@ def evaluate_loocv_with_calibration(X, y, feature_set_name="full", rf_params=Non
     all_y_proba = np.array(all_y_proba)
     y_pred      = (all_y_proba >= 0.5).astype(int)
 
-    try:    roc_auc     = roc_auc_score(all_y_test, all_y_proba)
-    except: roc_auc     = np.nan
-    try:    pr_auc      = average_precision_score(all_y_test, all_y_proba)
-    except: pr_auc      = np.nan
-    try:    accuracy    = accuracy_score(all_y_test, y_pred)
-    except: accuracy    = np.nan
-    try:    precision   = precision_score(all_y_test, y_pred, zero_division=0)
-    except: precision   = np.nan
-    try:    recall      = recall_score(all_y_test, y_pred, zero_division=0)
-    except: recall      = np.nan
-    try:    f1          = f1_score(all_y_test, y_pred, zero_division=0)
-    except: f1          = np.nan
-    try:    mcc         = matthews_corrcoef(all_y_test, y_pred)
-    except: mcc         = np.nan
+    try:    roc_auc   = roc_auc_score(all_y_test, all_y_proba)
+    except: roc_auc   = np.nan
+    try:    pr_auc    = average_precision_score(all_y_test, all_y_proba)
+    except: pr_auc    = np.nan
+    try:    accuracy  = accuracy_score(all_y_test, y_pred)
+    except: accuracy  = np.nan
+    try:    precision = precision_score(all_y_test, y_pred, zero_division=0)
+    except: precision = np.nan
+    try:    recall    = recall_score(all_y_test, y_pred, zero_division=0)
+    except: recall    = np.nan
+    try:    f1        = f1_score(all_y_test, y_pred, zero_division=0)
+    except: f1        = np.nan
+    try:    mcc       = matthews_corrcoef(all_y_test, y_pred)
+    except: mcc       = np.nan
 
     try:
         tn, fp, fn, tp = confusion_matrix(all_y_test, y_pred).ravel()
@@ -310,14 +314,14 @@ def permutation_test_3fold(
         p_values[metric] = (np.sum(permuted[metric] >= true_metrics[metric]) + 1) / (n_permutations + 1)
 
     # Save permuted arrays → results/tables/
-    perm_df      = pd.DataFrame(permuted)
-    perm_csv     = os.path.join(TABLES_DIR, f"Permutation_SelectedMetrics_{feature_set_name}_3fold.csv")
+    perm_df  = pd.DataFrame(permuted)
+    perm_csv = os.path.join(TABLES_DIR, f"Permutation_SelectedMetrics_{feature_set_name}_3fold.csv")
     perm_df.to_csv(perm_csv, index=False)
 
     # Save summary → results/tables/
-    summary      = {f"true_{k}": v for k, v in true_metrics.items()}
+    summary = {f"true_{k}": v for k, v in true_metrics.items()}
     summary.update({f"p_{k}": v for k, v in p_values.items()})
-    summary_csv  = os.path.join(TABLES_DIR, f"Permutation_Summary_{feature_set_name}_3fold.csv")
+    summary_csv = os.path.join(TABLES_DIR, f"Permutation_Summary_{feature_set_name}_3fold.csv")
     pd.DataFrame([summary]).to_csv(summary_csv, index=False)
 
     # Standard permutation histograms → results/figures/permutations/
@@ -332,7 +336,10 @@ def permutation_test_3fold(
             plt.ylabel("Frequency")
             plt.legend(loc="upper left")
             plt.tight_layout()
-            plt.savefig(os.path.join(FIGURES_PERM_DIR, f"Perm_{metric}_{feature_set_name}_3fold.png"), dpi=300, bbox_inches="tight")
+            plt.savefig(
+                os.path.join(FIGURES_PERM_DIR, f"Perm_{metric}_{feature_set_name}_3fold.png"),
+                dpi=300, bbox_inches="tight"
+            )
             plt.close()
 
     return {
@@ -347,7 +354,7 @@ def permutation_test_3fold(
 # ----------------- Run everything -----------------
 
 rf_base_params = {
-    "n_estimators":     100,
+    "n_estimators":      100,
     "min_samples_split": 2,
     "min_samples_leaf":  1,
     "random_state":      RANDOM_STATE
@@ -361,17 +368,17 @@ metrics_red  = evaluate_loocv_with_calibration(X_reduced, y, "reduced", rf_param
 metrics_summary = pd.DataFrame([
     {
         "Feature_Set": metrics_full["Feature_Set"],
-        "ROC_AUC": metrics_full["ROC_AUC"], "PR_AUC": metrics_full["PR_AUC"],
-        "Accuracy": metrics_full["Accuracy"], "Precision": metrics_full["Precision"],
+        "ROC_AUC": metrics_full["ROC_AUC"],   "PR_AUC": metrics_full["PR_AUC"],
+        "Accuracy": metrics_full["Accuracy"],  "Precision": metrics_full["Precision"],
         "Sensitivity": metrics_full["Sensitivity"], "Specificity": metrics_full["Specificity"],
-        "F1": metrics_full["F1"], "MCC": metrics_full["MCC"]
+        "F1": metrics_full["F1"],              "MCC": metrics_full["MCC"]
     },
     {
         "Feature_Set": metrics_red["Feature_Set"],
-        "ROC_AUC": metrics_red["ROC_AUC"], "PR_AUC": metrics_red["PR_AUC"],
-        "Accuracy": metrics_red["Accuracy"], "Precision": metrics_red["Precision"],
+        "ROC_AUC": metrics_red["ROC_AUC"],    "PR_AUC": metrics_red["PR_AUC"],
+        "Accuracy": metrics_red["Accuracy"],   "Precision": metrics_red["Precision"],
         "Sensitivity": metrics_red["Sensitivity"], "Specificity": metrics_red["Specificity"],
-        "F1": metrics_red["F1"], "MCC": metrics_red["MCC"]
+        "F1": metrics_red["F1"],               "MCC": metrics_red["MCC"]
     }
 ])
 metrics_summary.to_csv(os.path.join(TABLES_DIR, "LOOCV_Metrics_FullSet.csv"), index=False)
@@ -382,12 +389,21 @@ metrics_full["per_sample"].to_csv(os.path.join(TABLES_DIR, "LOOCV_Per_Sample_Pre
 metrics_red["per_sample"].to_csv(os.path.join(TABLES_DIR, "LOOCV_Per_Sample_Preds_reduced.csv"), index=False)
 
 
-# 2) Permutation tests
+# 2) Permutation tests — save_plots=False since publication figures are
+#    generated separately by Plot_Permutations.py
 pipe_full = Pipeline([('scaler', StandardScaler()), ('rf', RandomForestClassifier(**rf_base_params))])
-perm_results_full = permutation_test_3fold(X_full, y, pipe_full, "full", n_permutations=PERMUTATIONS, save_plots=False)
+perm_results_full = permutation_test_3fold(
+    X_full, y, pipe_full, "full",
+    n_permutations=PERMUTATIONS,
+    save_plots=False
+)
 
 pipe_red = Pipeline([('scaler', StandardScaler()), ('rf', RandomForestClassifier(**rf_base_params))])
-perm_results_red = permutation_test_3fold(X_reduced, y, pipe_red, "reduced", n_permutations=PERMUTATIONS, save_plots=False)
+perm_results_red = permutation_test_3fold(
+    X_reduced, y, pipe_red, "reduced",
+    n_permutations=PERMUTATIONS,
+    save_plots=False
+)
 
 # Combined permutation summary → results/tables/
 perm_summary = pd.DataFrame([
@@ -428,15 +444,15 @@ print_final_model_scores(metrics_red)
 
 # 6) Save individual variant scores → results/tables/
 def save_variant_scores(metrics_dict, original_df, id_col, out_name):
-    results              = metrics_dict['per_sample'].copy()
+    results               = metrics_dict['per_sample'].copy()
     results.insert(0, id_col, original_df[id_col].values)
     results['Prediction'] = results['y_pred'].map({1: 'Pathogenic', 0: 'Benign'})
-    save_path            = os.path.join(TABLES_DIR, out_name)
+    save_path             = os.path.join(TABLES_DIR, out_name)
     results.to_csv(save_path, index=False)
     print(f"Saved individual variant scores to: {save_path}")
 
-save_variant_scores(metrics_full, df, 'Protein_change', "Individual_Variant_Scores_Full.csv")
-save_variant_scores(metrics_red,  df, 'Protein_change', "Individual_Variant_Scores_Reduced.csv")
+save_variant_scores(metrics_full, df, 'Protein_Change', "Individual_Variant_Scores_Full.csv")
+save_variant_scores(metrics_red,  df, 'Protein_Change', "Individual_Variant_Scores_Reduced.csv")
 
 # Misclassification check
 misclassified = metrics_full['per_sample'][metrics_full['per_sample']['y_true'] != metrics_full['per_sample']['y_pred']]
